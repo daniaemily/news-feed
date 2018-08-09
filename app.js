@@ -1,8 +1,8 @@
 const categories = {
   'Top News': '',
-  'Celeb' : 'entertainment',
+  'Pop Culture' : 'entertainment',
   'Business' : 'business',
-  'Techie News' : 'technology',
+  'Tech' : 'technology',
   'Because Science' : 'science',
   'Sports' : 'sports'
 };
