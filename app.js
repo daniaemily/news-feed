@@ -20,6 +20,7 @@ function updatePageTitle(title) {
 
 function getArticles(title) {
   const category = categories[title];
+  // key has 1000 requests per day limit 
   const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=3bd915d84a3042d1be0b723b6ba01fa5`;
 
   // Fetch the articles
