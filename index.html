@@ -4,7 +4,11 @@
       <link rel="stylesheet" href="main.css">
     <title> Dashing News </title>
   </head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <script src="app.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <body>
     <h1>Dashing News</h1>
       <ul>
@@ -15,6 +19,9 @@
         <li><a href="#" onclick="logwhaticlicked('Because Science')" >Because Science</a></li>
         <li><a href="#" onclick="logwhaticlicked('Sports')" >Sports</a></li>
       </ul>
-      <h2 id="page-title"> </h2>
+      <h2 id="page-title"></h2>
+      <div id="articles">
+        <!-- injected via app.js -->
+      </div>
   </body>
 </html>
