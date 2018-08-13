@@ -20,47 +20,63 @@ function updatePageTitle(title) {
 
 function getArticles(title) {
   const category = categories[title];
-  // key has 1000 requests per day limit 
+  // key has 1000 requests per day limit
   const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=3bd915d84a3042d1be0b723b6ba01fa5`;
 
-  // Fetch the articles
   axios.get(url)
   .then(function (response) {
-    // looping through articles
+    const listItems = [];
     response.data.articles.forEach(function (article) {
-      // pass the article to addArticle
-      addArticle(article);
+      const listItemEl = buildArticleListItem(article);
+      listItems.push(listItemEl.outerHTML);
     });
+    replaceList(listItems.join(''));
   })
   .catch(function (error) {
     console.error(error);
   });
 }
 
-function addArticle(article) {
-  /**
-  * <li>
-  *   <a href="url">Title</a>
-  * </li>
-  */
-
-  // Get list element
+function replaceList(body) {
   const articlesListEl = document.getElementById("articles");
+  articlesListEl.innerHTML = body;
+}
 
-  var articleListItem = document.createElement("LI");
 
-  // <a href="url" target="_blank"></a>
-  var articleLink = document.createElement("A");
-  articleLink.setAttribute("href", article.url);
-  articleLink.setAttribute("target", "_blank");
+/**
+<li>
+ <a href="url">Title</a>
+ <img src="img"></img>
+</li>
+*/
+function buildArticleListItem(article) {
+  const aTag = buildArticleLink(article);
+  const imgTag = buildImageElement(article);
 
-  // Add title to link
-  var titleNode = document.createTextNode(article.title);
-  articleLink.appendChild(titleNode);
+  const articleListItem = document.createElement("LI");
+  articleListItem.appendChild(aTag);
+  articleListItem.appendChild(imgTag);
 
-  // Add link to list item
-  articleListItem.appendChild(articleLink);
+  return articleListItem;
+}
 
-  // appending the a tag to the list element
-  articlesListEl.appendChild(articleListItem);
+// <img src="img"></img>
+function buildImageElement(article) {
+  const articleImageEl = document.createElement("IMG"); // <img></img>
+  articleImageEl.setAttribute("src", article.urlToImage); // <img src="article.urlToImage"></img>
+  articleImageEl.setAttribute("class", "article-image"); // <img class="article-image" src="article.urlToImage"></img>
+  return articleImageEl; // <img class="article-image" src="http://www.myimageurl.com"></img>
+}
+
+// <a href="url">Title</a>
+function buildArticleLink(article) {
+  const articleLink = document.createElement("A"); // <a></a>
+  articleLink.setAttribute("href", article.url); // <a href="{article.url}"></a>
+  articleLink.setAttribute("target", "_blank"); // <a target="_blank" href="{article.url}"></a>
+
+  const titleNode = document.createTextNode(article.title);// "{article.title}"
+  articleLink.appendChild(titleNode); // <a target="_blank" href="{article.url}">{article.title}</a>
+
+  // <a target="_blank" href="http://myarticle.com/1">My Article</a>
+  return articleLink;
 }

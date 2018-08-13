@@ -5,6 +5,7 @@ h1 {
 ul {
   display: flex;
   justify-content: space-around;
+  padding-left: 0px;
 /*  padding: 2px;*/
 }
 
@@ -53,6 +54,9 @@ h2 {
 #articles a {
   color: black;
   display: flex;
+  flex-wrap: wrap;
+  place-content: space-between center;
+  height: 6vh;
 }
 
 #articles a:hover {
@@ -64,3 +68,14 @@ h2 {
   text-align: center;
   color: blue;
 }
+
+.article-image {
+  width: 20px;
+}
+
+.cover {
+  height: 30vh;
+  background-color: red;
+  margin-top: 4%;
+}
+
