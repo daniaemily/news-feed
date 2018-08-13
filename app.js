@@ -27,8 +27,8 @@ function getArticles(title) {
   .then(function (response) {
     const listItems = [];
     response.data.articles.forEach(function (article) {
-      const listItemEl = buildArticleListItem(article);
-      listItems.push(listItemEl.outerHTML);
+      const listItemEl = buildArticleHtml(article);
+      listItems.push(listItemEl);
     });
     replaceList(listItems.join(''));
   })
@@ -42,41 +42,11 @@ function replaceList(body) {
   articlesListEl.innerHTML = body;
 }
 
-
-/**
-<li>
- <a href="url">Title</a>
- <img src="img"></img>
-</li>
-*/
-function buildArticleListItem(article) {
-  const aTag = buildArticleLink(article);
-  const imgTag = buildImageElement(article);
-
-  const articleListItem = document.createElement("LI");
-  articleListItem.appendChild(aTag);
-  articleListItem.appendChild(imgTag);
-
-  return articleListItem;
-}
-
-// <img src="img"></img>
-function buildImageElement(article) {
-  const articleImageEl = document.createElement("IMG"); // <img></img>
-  articleImageEl.setAttribute("src", article.urlToImage); // <img src="article.urlToImage"></img>
-  articleImageEl.setAttribute("class", "article-image"); // <img class="article-image" src="article.urlToImage"></img>
-  return articleImageEl; // <img class="article-image" src="http://www.myimageurl.com"></img>
-}
-
-// <a href="url">Title</a>
-function buildArticleLink(article) {
-  const articleLink = document.createElement("A"); // <a></a>
-  articleLink.setAttribute("href", article.url); // <a href="{article.url}"></a>
-  articleLink.setAttribute("target", "_blank"); // <a target="_blank" href="{article.url}"></a>
-
-  const titleNode = document.createTextNode(article.title);// "{article.title}"
-  articleLink.appendChild(titleNode); // <a target="_blank" href="{article.url}">{article.title}</a>
-
-  // <a target="_blank" href="http://myarticle.com/1">My Article</a>
-  return articleLink;
+function buildArticleHtml(article) {
+  return `
+    <li>
+     <a target="_blank" href="${article.url}">${article.title}</a>
+     <img class="article-image" src="${article.urlToImage}"></img>
+    </li>
+  `;
 }
