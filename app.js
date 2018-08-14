@@ -8,6 +8,8 @@ const categories = {
 };
 
 function logwhaticlicked(title) {
+  const titleEl = document.getElementById(title);
+  titleEl.setAttribute("class", "selected");
   console.log(title);
   updatePageTitle(title);
   getArticles(title);
@@ -44,9 +46,16 @@ function replaceList(body) {
 
 function buildArticleHtml(article) {
   return `
-    <li>
-     <a target="_blank" href="${article.url}">${article.title}</a>
-     <img class="article-image" src="${article.urlToImage}"></img>
+    <li class="article-card">
+      <img class="article-image" src="${article.urlToImage}"></img>
+      <a class="article-title" target="_blank" href="${article.url}">${article.title}</a>
     </li>
   `;
+
+  // return `
+  //   <a class="article-card" target="_blank" href="${article.url}">${article.title}>
+  //    <img class="article-image" src="${article.urlToImage}"></img>
+  //    <a target="_blank" href="${article.url}">${article.title}</a>
+  //   </a>
+  // `;
 }

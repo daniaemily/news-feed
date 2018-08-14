@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <link rel="stylesheet" href="main.css">
-      <link href="https://fonts.googleapis.com/css?family=Hind:300,400,700" rel="stylesheet">
-    <title> Dashing News </title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <title> Dashing News </title>
   </head>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,30 +12,46 @@
   <script src="app.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <body>
-    <h1>Dashing News</h1>
+      <h1>Dashing News</h1>
       <ul class="flex-container row" style="list-style: none;">
-        <li><a href="#" onclick="logwhaticlicked('Top News')">Top News</a></li>
-        <li><a href="#" onclick="logwhaticlicked('Pop Culture')">Pop Culture</a></li>
-        <li><a href="#" onclick="logwhaticlicked('Business')" >Business</a></li>
-        <li><a href="#" onclick="logwhaticlicked('Tech')" >Tech</a></li>
-        <li><a href="#" onclick="logwhaticlicked('Because Science')" >Because Science</a></li>
-        <li><a href="#" onclick="logwhaticlicked('Sports')" >Sports</a></li>
+        <li>
+          <a href="#" id="Top News" onclick="logwhaticlicked('Top News')">
+            Top News
+          </a>
+        </li>
+        <li>
+          <a href="#" id="Pop Culture" onclick="logwhaticlicked('Pop Culture')">
+            Pop Culture
+          </a>
+        </li>
+        <li>
+          <a href="#" id="Business" onclick="logwhaticlicked('Business')">
+            Business
+          </a>
+        </li>
+        <li>
+          <a href="#" id="Tech" onclick="logwhaticlicked('Tech')">
+            Tech
+          </a>
+        </li>
+        <li>
+          <a href="#" id="Because Science" onclick="logwhaticlicked('Because Science')">
+            Because Science
+          </a>
+        </li>
+        <li>
+          <a href="#" id="Sports" onclick="logwhaticlicked('Sports')">
+            Sports
+          </a>
+        </li>
       </ul>
       <h2 id="page-title"></h2>
-      <div class="row">
-        <div class="class="col-md-9">
-          <ul class="post-list featured">
-            <li class="googies">
-              <div id="articles" class="pic-tech">
-                <!-- injected via app.js -->
-              </div>
-            </li>
-          </ul>
+        <div id="articles" class="pic-tech">
+          <!-- injected via app.js -->
         </div>
-      </div>
-
-    <div class="container">
+    <div class="flex-container">
       <section class="cover">
+        <img src="images/helloHustler.jpg" class="cover-img" alt="imggggvhg">
           <p> Testingggg</p>
       </section>
 
