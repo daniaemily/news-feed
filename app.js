@@ -9,8 +9,15 @@ const categories = {
 
 function logwhaticlicked(title) {
   const titleEl = document.getElementById(title);
-  titleEl.setAttribute("class", "selected");
-  console.log(title);
+
+  // remove .selected
+  var navItems = document.querySelectorAll('.nav-category');
+  navItems.forEach(function(i) {
+    i.classList.remove("selected");
+  });
+  // add .selected
+  titleEl.classList.add("selected");
+
   updatePageTitle(title);
   getArticles(title);
 }
@@ -45,10 +52,21 @@ function replaceList(body) {
 }
 
 function buildArticleHtml(article) {
+  console.log(article);
   return `
     <li class="article-card">
-      <img class="article-image" src="${article.urlToImage}"></img>
-      <a class="article-title" target="_blank" href="${article.url}">${article.title}</a>
+      <a target="_blank" href="${article.url}">
+        <img class="article-image" src="${article.urlToImage}"></img>
+        <div class="article-content">
+          <div class="article-title-container">
+            <h3>${article.title}</h3>
+          </div>
+          <div class="article-details-container">
+            <span>${moment(article.publishedAt).fromNow()}</span>
+            <span>${article.source.name}</span>
+          </div>
+        </div>
+      </a>
     </li>
   `;
 
