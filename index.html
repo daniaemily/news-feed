@@ -4,99 +4,58 @@
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css?family=Hind:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-  <title> Dashing News </title>
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <title>Dashing News</title>
   </head>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="app.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="node_modules/moment/min/moment.min.js"></script>
   <body>
-      <h1>Dashing News</h1>
-      <ul class="flex-container row" style="list-style: none;">
-        <li>
-          <a href="#" id="Top News" onclick="logwhaticlicked('Top News')">
-            Top News
-          </a>
-        </li>
-        <li>
-          <a href="#" id="Pop Culture" onclick="logwhaticlicked('Pop Culture')">
-            Pop Culture
-          </a>
-        </li>
-        <li>
-          <a href="#" id="Business" onclick="logwhaticlicked('Business')">
-            Business
-          </a>
-        </li>
-        <li>
-          <a href="#" id="Tech" onclick="logwhaticlicked('Tech')">
-            Tech
-          </a>
-        </li>
-        <li>
-          <a href="#" id="Because Science" onclick="logwhaticlicked('Because Science')">
-            Because Science
-          </a>
-        </li>
-        <li>
-          <a href="#" id="Sports" onclick="logwhaticlicked('Sports')">
-            Sports
-          </a>
-        </li>
-      </ul>
-      <h2 id="page-title"></h2>
-        <div id="articles" class="pic-tech">
-          <!-- injected via app.js -->
-        </div>
+    <h1>Dashing News</h1>
+    <ul class="header" style="list-style: none;">
+      <li class="nav-category" id="Top News">
+        <a href="#" onclick="logwhaticlicked('Top News')">
+          Top News
+        </a>
+      </li>
+      <li class="nav-category" id="Pop Culture">
+        <a href="#" onclick="logwhaticlicked('Pop Culture')">
+          Pop Culture
+        </a>
+      </li>
+      <li class="nav-category" id="Business">
+        <a href="#" onclick="logwhaticlicked('Business')">
+          Business
+        </a>
+      </li>
+      <li class="nav-category" id="Tech">
+        <a href="#" onclick="logwhaticlicked('Tech')">
+          Tech
+        </a>
+      </li>
+      <li class="nav-category" id="Because Science">
+        <a href="#" onclick="logwhaticlicked('Because Science')">
+          Because Science
+        </a>
+      </li>
+      <li class="nav-category" id="Sports">
+        <a href="#" onclick="logwhaticlicked('Sports')">
+          Sports
+        </a>
+      </li>
+    </ul>
+    <h2 id="page-title"></h2>
+    <div id="articles" class="pic-tech">
+      <!-- injected via app.js -->
+    </div>
     <div class="flex-container">
       <section class="cover">
         <img src="images/helloHustler.jpg" class="cover-img" alt="imggggvhg">
-          <p> Testingggg</p>
       </section>
 
     </div>
-  <!-- <div class="w3-twothird">
-        <h5>Feeds</h5>
-        <table class="w3-table w3-striped w3-white">
-          <tr>
-            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-            <td>New record, over 90 views.</td>
-            <td><i>10 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
-            <td>Database error.</td>
-            <td><i>15 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>New record, over 40 users.</td>
-            <td><i>17 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
-            <td>New comments.</td>
-            <td><i>25 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
-            <td>Check transactions.</td>
-            <td><i>28 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
-            <td>CPU overload.</td>
-            <td><i>35 mins</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-            <td>New shares.</td>
-            <td><i>39 mins</i></td>
-          </tr>
-        </table>
-      </div> -->
-
-
   </body>
 </html>

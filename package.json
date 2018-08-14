@@ -1,0 +1,22 @@
+{
+  "name": "news-feed",
+  "version": "1.0.0",
+  "description": "Vanilla JavaScript spa showcasing news headlines",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniaemily/news-feed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daniaemily/news-feed/issues"
+  },
+  "homepage": "https://github.com/daniaemily/news-feed#readme",
+  "dependencies": {
+    "moment": "^2.22.2"
+  }
+}
